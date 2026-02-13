@@ -1,0 +1,1 @@
+console.log("Running Node project inside Jenkins CI 🚀");
