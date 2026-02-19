@@ -14,12 +14,13 @@ pipeline {
 
         stage('Run Cypress Tests') {
             steps {
-                    bat '''
-                    chcp 65001
-                    set CI=true
-                    npx cypress run
-                    '''
+                    bat 'set CI=true && npx cypress run'
             }
+                post {
+                always {
+                    junit 'cypress/results/*.xml'
+                }
+                }
         }
     }
 }
