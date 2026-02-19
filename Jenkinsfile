@@ -14,7 +14,11 @@ pipeline {
 
         stage('Run Cypress Tests') {
             steps {
-                bat 'set CI=true && npx cypress run'
+                    bat '''
+                    chcp 65001
+                    set CI=true
+                    npx cypress run
+                    '''
             }
         }
     }
