@@ -4,13 +4,13 @@ pipeline {
     stages {
         stage('Install Dependencies') {
             steps {
-                bat 'npm install'
-            }   
+                bat 'npm ci'
+            }
         }
 
-        stage('Run Tests') {
+        stage('Run Cypress Tests') {
             steps {
-                bat 'npm test'
+                bat 'npx cypress run'
             }
         }
     }
